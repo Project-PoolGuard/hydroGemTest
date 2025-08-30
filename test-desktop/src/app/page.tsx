@@ -1,6 +1,7 @@
 // app/pool/page.tsx
 import { getServerSupabase } from "@/lib/supabase/server";
 import LiveReading from "@/components/LiveReading";
+import AnalysisPanel from "@/components/AnalysisPanel";
 import type { PoolReading } from "@/types/pool";
 
 export const revalidate = 0; // always fresh on navigation
@@ -20,9 +21,12 @@ export default async function PoolPage() {
   }
 
   return (
-    <main className="mx-auto max-w-6xl px-5 py-8 text-white b">
-      <h1 className="mb-6 text-2xl font-semibold">Pool Status</h1>
-      <LiveReading initial={data ?? null} />
+    <main className="mx-auto max-w-6xl px-5 py-8 text-white overflow-auto">
+      <h1 className="mb-6 text-5xl font-semibold text-center">Pool Status</h1>
+      <div className="flex flex-col gap-5">
+        <LiveReading initial={data ?? null} />
+        <AnalysisPanel />
+      </div>
     </main>
   );
 }
