@@ -21,7 +21,7 @@ export default async function PoolPage() {
   }
 
   return (
-    <main className="mx-auto max-w-6xl px-5 py-8 text-white overflow-auto">
+    <main className="mx-auto max-w-6xl px-5 py-8 text-white min-h-screen">
       <h1 className="mb-6 text-5xl font-semibold text-center">Pool Status</h1>
       <div className="flex flex-col gap-5">
         <LiveReading initial={data ?? null} />
